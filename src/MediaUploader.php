@@ -76,7 +76,7 @@ class MediaUploader
     /**
      * @var \Plank\Mediable\Media
      */
-    private $model;
+    protected $model;
 
     /**
      * Constructor.
