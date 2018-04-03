@@ -688,13 +688,10 @@ class MediaUploader
         do {
             $filename = "{$model->filename}";
             if ($counter > 0) {
-                $filename .= '-' . $counter;
+                $filename .= '_' . str_pad($counter, 3, '0', STR_PAD_LEFT);
             }
             $path = "{$model->directory}/{$filename}.{$model->extension}";
             ++$counter;
-            $number = str_pad($counter, 3, '0', STR_PAD_LEFT);
-            $filename = "{$model->filename}_{$number}";
-            $path = "{$model->directory}/{$filename}.{$model->extension}";
         } while ($storage->has($path));
 
         return $filename;
